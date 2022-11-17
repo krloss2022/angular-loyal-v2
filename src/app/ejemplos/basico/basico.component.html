@@ -1,0 +1,57 @@
+<!-- interpolacion-->
+<h1>
+  {{ title }} - {{ 1 + 1 }} - {{ getTitle() }}
+</h1>
+
+<!-- directiva estructural-->
+<div *ngIf="mostarTexto; else ElseMostarTexto">
+  El flag el verdadero {{mostarTexto}}
+</div>
+<!--else del ngIf-->
+<ng-template #ElseMostarTexto>
+  El flag es falso
+</ng-template>
+
+<!-- property binding-->
+<button
+  [ngClass]="{'miboton' : mostarTexto}"
+  [id]="title"
+  (click)="cambiar()">
+    Cambiar
+</button>
+<hr>
+
+<!--
+  for
+-->
+<h2>
+  Lenguajes
+</h2>
+<!-- directiva estructural-->
+<ul>
+  <li *ngFor="let aux of lenguajes; let i = index"
+    [ngClass]="{'even': i%2 !== 0, 'odd': i%2 === 0}">
+    <!--interpolacion de aux-->
+    <!-- pipe | -->
+    <!-- {{aux | json}} -->
+    {{i}} {{ aux.name }}
+  </li>
+</ul>
+<hr>
+<button (click)="mostrarLogin()">
+  Mostrar Login
+</button>
+<button (click)="ocultarLogin()">
+  Ocultar Login
+</button>
+<br>
+{{showLogin}}
+<div *ngIf="showLogin">
+
+  <app-login
+    [user]="'pepe'"
+    (informarAlPadre)="recibirMensaje($event)" >
+  </app-login>
+
+</div>
+<!--agregar el com-->

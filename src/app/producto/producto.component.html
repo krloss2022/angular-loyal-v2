@@ -1,0 +1,26 @@
+<h1>Producto</h1>
+
+<div class="producto-container">
+  <div *ngFor="let p of productos" class="producto-item">
+    <h3> {{p.titulo}} </h3>
+    <p> {{p.id}} </p>
+    <img [src]="p.url" class="imagen">
+    <hr>
+    <a
+       routerLink="/detalle/{{p.id}}">
+       Detalle
+    </a>
+  </div>
+</div>
+
+<div *ngIf="productId; else ElseProductId">
+  <app-product-detail></app-product-detail>
+</div>
+<hr>
+<button (click)="cargarDetalle(id)">
+  Detalle
+</button>
+<hr>
+<ng-template #ElseProductId>
+  No hay producto
+</ng-template>

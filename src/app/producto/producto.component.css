@@ -1,0 +1,15 @@
+.imagen {
+  width: 50px;
+  height: auto;
+}
+
+.producto-container {
+  display: flex;
+  justify-content: center;
+}
+
+.producto-item {
+    margin: 5px;
+    background: gainsboro;
+    border: 1px solid red;
+}
