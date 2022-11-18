@@ -21,7 +21,7 @@ export class UserService {
       url: ''
     }
   };
-  private user = new BehaviorSubject<User>(this.userInicial); // null as unknown as User
+  private user = new BehaviorSubject<User>(null as unknown as User); // null as unknown as User
   private currentUser:Observable<User> = this.user.asObservable();
   //ngrx
 

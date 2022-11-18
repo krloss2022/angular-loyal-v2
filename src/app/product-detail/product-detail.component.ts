@@ -5,13 +5,15 @@ import { ActivatedRoute } from '@angular/router';
 import { environment } from './../../environments/environment';
 import { User } from './user-dto';
 import { UserService } from './../user.service';
+import { PuedeDesactivar } from './../can-deactive-guard.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.css']
 })
-export class ProductDetailComponent implements OnInit {
+export class ProductDetailComponent implements OnInit,PuedeDesactivar {
 
   user?: User;
 
@@ -20,6 +22,11 @@ export class ProductDetailComponent implements OnInit {
     //private httpClient: HttpClient
     private userService: UserService
   ) { }
+
+  permitirSalir(): boolean | Observable<boolean> | Promise<boolean> {
+    return confirm('desea salir?');
+  }
+
 
   ngOnInit(): void {
 

@@ -13,7 +13,8 @@ import { ProductoComponent } from './producto/producto.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { HttpClientModule} from '@angular/common/http';
 import { BuscarComponent } from './buscar/buscar.component';
-import { ResultadosComponent } from './resultados/resultados.component'
+import { ResultadosComponent } from './resultados/resultados.component';
+import { ProfileComponent } from './profile/profile.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,8 @@ import { ResultadosComponent } from './resultados/resultados.component'
     ProductoComponent,
     ProductDetailComponent,
     BuscarComponent,
-    ResultadosComponent
+    ResultadosComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -10,12 +10,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ResultadosComponent implements OnInit {
 
+  loaded = false;
   user?:User;
   userForm: FormGroup = this.formBuilder.group(
     {
       id: [''],
       email: [''],
-      firtName: ['']
+      firstName: [''],
+      lastName: ['']
     }
   );
 
@@ -27,7 +29,18 @@ export class ResultadosComponent implements OnInit {
   ngOnInit(): void {
 
     this.us.getCurrentUser().subscribe(
-      data=>  this.user = data
+      data=>  {
+        if(data) {
+          this.user = data
+          this.userForm.patchValue({
+            id: data.data.id,
+            email: data.data.email,
+            firstName: data.data.first_name,
+            lastName: data.data.last_name
+          });
+          this.loaded = true;
+        }
+      }
     );
   }
 

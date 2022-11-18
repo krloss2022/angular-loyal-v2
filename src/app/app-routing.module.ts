@@ -7,6 +7,9 @@ import { HomeComponent } from './home/home.component';
 import { ProductoComponent } from './producto/producto.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { BuscarComponent } from './buscar/buscar.component';
+import { CanDeactiveGuard } from './can-deactive-guard.service';
+import { UserResolve } from './user-resolve.service';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {
@@ -23,10 +26,15 @@ const routes: Routes = [
     path:'productos',component: ProductoComponent
   },
   {
-    path:'detalle/:id',component: ProductDetailComponent
+    path:'detalle/:id',component: ProductDetailComponent, canDeactivate:[CanDeactiveGuard]
   },
   {
-    path:'buscar',component: BuscarComponent
+    path:'buscar',component: BuscarComponent , canDeactivate:[CanDeactiveGuard]
+  },
+  {
+    path:'profile',component: ProfileComponent , resolve:{
+      datosDelProfile: UserResolve
+    }
   },
   {
     path: '**', component: NotFoundComponent
