@@ -1,2 +1,65 @@
 <p>product-detail works!</p>
-{{producto}}
+<!-- {{user | json}} -->
+<div class="container">
+  <!-- formulario: template driven-->
+  <div>
+    <fieldset>
+      <legend>
+        Datos de usuario
+      </legend>
+      <form #formulario='ngForm'
+        (ngSubmit)="submitForm(formulario)">
+        <label>Id</label>
+        <input type="number" value="{{user?.data?.id}}">
+
+        <label>email</label>
+        <input type="email"
+          value="{{user?.data?.email}}"
+          name="email"
+          #email="ngModel"
+          ngModel
+          required
+          email
+          [ngClass]="{'is-invalid': email.touched && email.invalid}"
+          >
+        <label>Firt Name</label>
+        <input type="text" value="{{user?.data?.first_name}}">
+        <br>
+
+        <label>Firt Name</label>
+        <input type="text" value="{{user?.data?.last_name}}">
+
+        <label>Avatar</label>
+        <img [src]="user?.data?.avatar">
+
+        <label>Support</label>
+        <input type="url" value="{{user?.support?.url}}">
+
+        <label>Text</label>
+        <input type="text" value="{{user?.support?.text}}">
+
+        <br>
+        <button type="submit">
+          Guardar
+        </button>
+      </form>
+
+    </fieldset>
+  </div>
+  <div>
+    <fieldset>
+      <legend>
+        Información de formulario
+      </legend>
+      <ul>
+        <li>Values: {{formulario.value | json}}</li>
+        <li>Valid: {{formulario.valid}}</li>
+        <li>Invalid {{formulario.invalid}}</li>
+        <li>Submitted {{formulario.submitted}}</li>
+        <li>Pristine {{formulario.pristine}}</li>
+        <li>Touch {{formulario.touched}}</li>
+        <li>Dirty {{formulario.dirty}}</li>
+      </ul>
+    </fieldset>
+  </div>
+</div>

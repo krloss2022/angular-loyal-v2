@@ -1,0 +1,18 @@
+<h1>Bucador</h1>
+<form #formulario='ngForm' (ngSubmit)="buscar(formulario)">
+  <input type="text"
+    clave
+    ngModel
+    required
+    name="clave"
+    #clave="ngModel"
+  >
+  <button type="submit">
+    Buscar
+  </button>
+</form>
+<hr>
+<h2>
+  Resultados
+</h2>
+<app-resultados></app-resultados>

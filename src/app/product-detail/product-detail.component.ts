@@ -1,7 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from './../../environments/environment';
+import { User } from './user-dto';
+import { UserService } from './../user.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -10,28 +13,40 @@ import { environment } from './../../environments/environment';
 })
 export class ProductDetailComponent implements OnInit {
 
-  producto?: string;
+  user?: User;
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private httpClient: HttpClient
+    //private httpClient: HttpClient
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
 
     //ir a buscar el detalle usando el httpclient (por ahora!)
-    const id = this.activatedRoute.snapshot.params['id'];
+    const id:number = this.activatedRoute.snapshot.params['id'];
 
     //ARMAR LA URL DEL RECURSO
     //https://reqres.in/api/users/2
 
-    this.httpClient.get(`${environment.reqResBaseUrl}/users/${id}`)
+    /*this.httpClient.get<User>(`${environment.reqResBaseUrl}/users/${id}`)
       .subscribe(
         data => {
-          this.producto = JSON.stringify(data);
+          this.user = data;
         }
-      );
+    );
+    */
+   debugger;
+   //busqueda
+   this.userService.getUser(id);
 
+   //escucho el cambio
+   this.userService.getCurrentUser().subscribe(
+    data => this.user = data
+   )
   }
 
+  submitForm(formulario: NgForm){
+    console.log(formulario);
+  }
 }

@@ -6,6 +6,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 import { ProductoComponent } from './producto/producto.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { BuscarComponent } from './buscar/buscar.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,9 @@ const routes: Routes = [
   },
   {
     path:'detalle/:id',component: ProductDetailComponent
+  },
+  {
+    path:'buscar',component: BuscarComponent
   },
   {
     path: '**', component: NotFoundComponent

@@ -11,7 +11,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 import { ProductoComponent } from './producto/producto.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { HttpClientModule} from '@angular/common/http'
+import { HttpClientModule} from '@angular/common/http';
+import { BuscarComponent } from './buscar/buscar.component';
+import { ResultadosComponent } from './resultados/resultados.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,9 @@ import { HttpClientModule} from '@angular/common/http'
     NotFoundComponent,
     HomeComponent,
     ProductoComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    BuscarComponent,
+    ResultadosComponent
   ],
   imports: [
     BrowserModule,
