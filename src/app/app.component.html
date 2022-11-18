@@ -1,4 +1,4 @@
-<ul>
+<!-- <ul>
   <li>
     <a routerLink="/login"
       routerLinkActive="menuActive">
@@ -23,32 +23,41 @@
       Listado de Productos
     </a>
   </li>
-  <!-- <li>
-    <form>
-      <input type="text">
-      <button>
-        Buscar
-      </button>
-    </form>
-  </li> -->
   <li>
     <a routerLink="/buscar"
       routerLinkActive="menuActive">
       Buscar
     </a>
   </li>
-  <!--
-  <li>
-    <a
-      routerLink="/producto2"
-      routerLinkActive="menuActive"
-      (click)="navegarPorTS()">
-      Producto 2
-    </a>
-  </li>
--->
-</ul>
-
-<!-- lo usamos despues con el router!!! -->
-<router-outlet></router-outlet>
-
+</ul> -->
+<main>
+  <header>
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page"
+          routerLink="/login"
+          routerLinkActive="menuActive">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/basico"
+        routerLinkActive="menuActive">Basico</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/home"
+        routerLinkActive="menuActive">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/productos"
+          routerLinkActive="menuActive">Listado Productos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/buscar"
+        routerLinkActive="menuActive">Buscador</a>
+      </li>
+    </ul>
+  </header>
+  <div class="container">
+    <!-- lo usamos despues con el router!!! -->
+    <router-outlet></router-outlet>
+  </div>
+</main>
